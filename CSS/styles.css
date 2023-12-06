@@ -148,7 +148,11 @@ aside{
 .text-footer {
     color: var(--clr-main-light);
     font-size: .85rem;
-
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    display: flex;
 
 }
 
@@ -345,6 +349,10 @@ main {
     display: none;
 }
 
+.mobile-footer {
+    display: none;
+}
+
 
 /***** MEDIA QUERIES ******/
 
@@ -352,11 +360,19 @@ main {
     .contenedor-productos {
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+    aside {
+        padding: 1rem;
+    }
 }
 
 @media screen and (max-width: 675px) {
     .contenedor-productos {
         grid-template-columns: 1fr 1fr;
+    }
+    aside {
+        padding: 1rem;
+
     }
 }
 
@@ -456,6 +472,18 @@ main {
         flex-wrap: wrap;
         row-gap: 1rem;
 
+    }
+
+    .mobile-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-weight: 600;
+        flex-wrap: wrap;
+        background-color: var(--clr-main);
+        padding: 0;
+        margin: 0;
     }
 
 }
