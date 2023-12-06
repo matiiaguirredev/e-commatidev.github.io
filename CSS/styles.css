@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+:root {
+    --clr-main: #c1bab1;
+    --clr-main-light: #8a7c6c;
+    --clr-white: #ececec;
+    --clr-gray: #e2e2e2;
+    --clr-red: #961818;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, input, textarea {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-logo-atila {
+    max-width: 100%;
+}
+
+.contenedor{
+    background-color: var(--clr-main);
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+aside{
+    padding: 2rem;
+    padding-right: 0; /* se paso este padding de 0 para que llegue la barra de los botones bien hasta el costado */
+    color: var(--clr-white);
+    position: sticky;
+    height: 100vh;  /* se pone la altura para que la tenga, si no no te persigue el sticky - NO ES RECOMENDABLE por que dsp no sirve para mobile */
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 400;
+
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+}
+
+.btn-menu {
+    background-color: transparent;
+    border: 0;
+    color: var(--clr-white);
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    font-size: .85rem;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.btn-menu.active {
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    border-top-left-radius: 1rem; /* importate el orden en como se escribe la propiedad por que sino no existe */
+    border-bottom-left-radius: 1rem; /* importate el orden en como se escribe la propiedad por que sino no existe */
+    position: relative;
+    align-items: center;
+
+}
+
+.btn-menu.active::before {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    bottom: 100%;
+    right: 0;
+    background-color: transparent;
+    border-bottom-right-radius: .5rem;
+    box-shadow: 0 1rem 0 var(--clr-white);
+
+}
+
+.btn-menu.active::after {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    top: 100%;
+    right: 0;
+    background-color: transparent;
+    border-top-right-radius: .5rem;
+    box-shadow: 0 -1rem 0 var(--clr-white);
+
+}
+
+.btn-carrito{
+    margin-top: 2rem;
+    
+}
+
+.numerito{
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    padding: .15rem .25rem;
+    border-radius: .25rem;
+
+}
+
+.btn-carrito.active .numerito {
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+}
+
+.bi-hand-index-thumb-fill, .bi-hand-index-thumb {
+    transform: rotateZ(90deg);
+}
+
+
+.text-footer {
+    color: var(--clr-main-light);
+    font-size: .85rem;
+
+
+}
+
+
+
+   /*  ///////////SEPARACION DE SECCIONES !  */
+
+
+main {
+    background-color: var(--clr-white);
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 2rem;
+    padding: 3rem;
+
+}
+
+.title-ofi {
+    color: var(--clr-main);
+    margin-bottom: 2rem; /* para que se separe del lado de abajo */
+
+}
+
+.contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
+    gap: 1rem;
+
+}
+
+.prod-img {
+    max-width: 100%; /* esto es para que ocupe el maximo de su grilla digamos un 100% sino se cuelga en grande */
+    border-radius: 1rem;
+
+}
+
+.prod-details {
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    padding: .5rem;
+    border-radius: 1rem ;
+    margin-top: -2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+
+}
+
+.prod-title {
+    font-size: 1rem;
+
+}
+
+.prod-add {
+    border: 0;
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    padding: .25rem;
+    text-transform: uppercase;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: background-color .2s, color .2s; /* transicion para el boton de hover*/
+
+
+}
+
+.prod-add:hover {
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+
+}
+
+
+/* CARRITO ! */
+
+.carrito-productos{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+}
+
+.cart-vacio, .carrito-comprado {
+    color: var(--clr-main);
+
+}
+
+.cart-prods{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.cart-prod {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--clr-gray);
+    color: var(--clr-main);
+    padding: .5rem;
+    padding-right: 1.5rem;
+    border-radius: 1rem;
+
+}
+
+.cart-prod small{
+    font-size: .75rem;
+
+}
+
+.cart-prud-img {
+    width: 4rem;
+    border-radius: 1rem;
+
+
+}
+
+.cart-prod-delete {
+    border: 0;
+    background-color: transparent;
+    color: var(--clr-red);
+    cursor: pointer;
+
+}
+
+
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.cart-act-vaciar{
+    border: 0;
+    background-color: var(--clr-gray);
+    padding: 1rem;
+    border-radius: 1rem;
+    color: var(--clr-main);
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 500;
+
+}
+
+.cart-act-vaciar:hover {
+    transition: .75s;
+    background-color: var(--clr-main);
+    color: var(--clr-gray);
+}
+
+.cart-action-right {
+    display: flex;
+
+}
+
+.cart-action-total {
+    display: flex;
+    background-color: var(--clr-gray);
+    padding: 1rem;
+    color: var(--clr-main);
+    text-transform: uppercase;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    gap: 1rem;
+
+    
+}
+
+.cart-act-buy {
+    border: 0;
+    background-color: var(--clr-main);
+    padding: 1rem;
+    color: var(--clr-white);
+    text-transform: uppercase;
+    cursor: pointer;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+
+.disabled {
+    display: none;
+}
+
+.close-menu {
+    display: none;
+}
+
+.header-mobile {
+    display: none;
+}
+
+
+/***** MEDIA QUERIES ******/
+
+@media screen and (max-width: 850px) {
+    .contenedor-productos {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 675px) {
+    .contenedor-productos {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    
+    .contenedor {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    aside {
+        
+        position: fixed;
+        z-index: 9;
+        background-color: var(--clr-main);
+        left: 0;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.644);
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: .2s;
+
+    }
+
+    .aside-visible {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+
+    }
+
+    .btn-menu.active::before, .btn-menu.active::after {
+        display: none;
+    }
+
+    main{
+        margin: 1rem;
+        padding: 1.5rem;
+        margin-top: 0;
+
+    }
+
+    .contenedor-productos {
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .header-mobile {
+        display: flex;
+        padding: 1rem;
+        justify-content: space-between;
+        align-items: center;
+
+
+    }
+
+    .header-mobile .logo {
+
+        color: var(--clr-gray);
+
+    }
+
+    .open-menu, .close-menu {
+        background-color: transparent;
+        color: var(--clr-gray);
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+
+
+    }
+
+    .close-menu {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+
+    }
+
+    .cart-prod {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: .5rem;
+
+    }
+    
+    .cart-prod-subprice {
+        display: none;
+
+    }
+
+    .cart-actions {
+        flex-wrap: wrap;
+        row-gap: 1rem;
+
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .contenedor-productos {
+        grid-template-columns: 1fr;
+    }
+}
